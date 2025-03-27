@@ -1,155 +1,74 @@
-# Vite-Express-Template
+# Mini App Challenge: Movie List
 
-**Vite-Express-Template** combines **Vite** for fast front-end development with **Express** for back-end API handling. It provides a full-stack setup where **Vite** manages the front-end development workflow with hot-reloading, while **Express** serves API routes and static files, ensuring a seamless development experience. This template includes **PostgreSQL** for the database and **Knex.js** as the query builder, simplifying database interactions.
+## What is Movie List?
 
-The template also includes automated **testing** with:
+Movie List is a prompt for a full-stack application.
 
--   **Jest** and **Supertest** for back-end API route testing.
--   **Jest** and **React Testing Library** for front-end component testing.
+While you're working through each level, try to only use official documentation. Try to not use Stack Overflow, your own notes, past sprint code, or any other external resources. This will help you develop familiarity with the docs as well as get you acclimated to a real test-like environment.
 
-Additionally, it offers **Docker compatibility**, allowing for easy containerized deployment and development. Docker ensures a consistent environment for running the application, simplifying dependency management and deployment.
+If you do need to reference past code/Stack Overflow, write down what topics you needed extra help on. Then, go find these topics in the official documentation.
 
----
+## Setup:
 
-## 🚀 Run Locally
+1. Create an empty git repository with a `client` and `server` directory.
+2. Link this repository to a new repository on GitHub as your remote.
 
-### 📌 Prerequisites
+## Submitting the project:
 
-Ensure you have the following installed:
-
--   [Node.js](https://nodejs.org/) (Recommended: v16+)
--   npm (comes with Node.js)
--   Git (to clone the repository)
--   [Docker](https://www.docker.com/)
-
-### 🔹 Clone the repository
-
-```sh
-  git clone https://github.com/Adam-Brace/Vite-Express-Template
-```
-
-### 🔹 Navigate to the project directory
-
-```sh
-  cd Vite-Express-Template
-```
-
-### 🔹 Run the setup script and follow the prompts
-
-```sh
-  ./setup.sh
-```
-
-## Running with Node
-
-### 🔹 Start the client
-
-```sh
-  npm run dev --prefix ./client
-```
-
-### 🔹 Open a new terminal and start the server
-
-```sh
-  npm run dev --prefix ./server
-```
-
-## Running with Docker
-
-### 🔹 Start the application using Docker
-
-```sh
-  docker compose up --build
-```
+Submit a link to your repository below.
 
 ---
 
-## Knex Migrations & Seeding
+## Level 0
 
-### Running Migrations & Seeds
+-   Build a frontend using `create-react-app` in your `client` directory.
+-   Display a list of movies from hardcoded data.
+-   You can use the following data:
+    ```javascript
+    const movies = [
+    	{ title: "Mean Girls" },
+    	{ title: "Hackers" },
+    	{ title: "The Grey" },
+    	{ title: "Sunshine" },
+    	{ title: "Ex Machina" },
+    ];
+    ```
 
-Run `./knex.sh` to apply database migrations and seed data:
+## Level 1
 
-```sh
-  ./knex.sh
-```
+-   Establish a RESTful API using `express` persisting data with PostgreSQL in your `server` directory.
+-   Confirm routes using Postman.
+-   Refactor your front end to get the list of movie titles from the server, instead of using a hardcoded list of movie titles.
 
-This executes the following commands in order:
+## Level 2
 
--   `npx knex migrate:rollback` → Rolls back the last migration batch
--   `npx knex migrate:latest` → Runs all pending migrations
--   `npx knex seed:run` → Populates the database with seed data
+-   Add a search bar so that a user may see if a movie is in the list.
+-   After a user submits the search, display all matches (or partial matches) to that title.
 
-### Creating Migrations and Seeds
+## Level 3
 
-To generate new migration and seed files, run:
+-   Add an input field for users to add movies.
+-   Allow users to delete added movies.
+-   Display only user-added movies, not the hardcoded data.
 
-```sh
-  ./knex.sh <migration_and_seed_name> [additional_migrations_and_seeds...]
-```
+## Level 4
 
-For example:
+-   Add a button to each list item that allows the user to toggle a 'watched' property.
+-   Add two buttons to allow the users to toggle between a list of 'watched' movies and movies 'to watch'.
 
-```sh
-  ./knex.sh roles users
-```
+## Level 5
 
-This generates the following migration and seed files:
-
-```sh
-migrations/
-├── 00_roles.js
-├── 01_users.js
-
-seeds/
-├── 00_roles.js
-├── 01_users.js
-```
-
----
-
-## 🛠 Common Issues
-
-When running `./setup.sh`, you may encounter one of these errors:
-
-**❌ Error:**
-
--   `./setup.sh: Permission denied`
--   `Unknown command. './setup.sh' exists but is not an executable file.`
-
-**Solution:**
-Run the following command to grant execute permissions to the setup script:
-
-```sh
-  chmod +x setup.sh
-```
-
-When running `./knex.sh`, you may encounter one of these errors:
-
-**❌ Error:**
-
--   `./knex.sh: Permission denied`
--   `Unknown command. './knex.sh' exists but is not an executable file.`
-
-**Solution:**
-Run the following command to grant execute permissions to the knex script:
-
-```sh
-  chmod +x knex.sh
-```
+-   Add a panel of movie information that appears when the title is clicked (consider starting with hardcoded information).
+-   Refactor the watch toggle to be part of the movie information panel.
+-   Get movie information from the [The Movie Database API](https://www.themoviedb.org/documentation/api) and store it locally when a new movie is added to the database.
 
 ---
 
-## ✅ Running Tests
+## Stretch Goals
 
-To run tests, navigate to the appropriate directory (server or client) and run:
-
-```sh
-  npm run test
-```
-
----
-
-## 👤 Author
-
--   [Adam Brace](https://github.com/Adam-Brace)
+-   Implement a user system (NOT a login system), where different users can have their own ratings.
+-   Add a way for the user to add their own rating.
+-   Add a sorting mechanism so the user can sort on rating or other properties.
+-   Refactor search to allow users to search for movies with a specific director or actor/actress.
+-   Provide functionality in the UI that allows the user to find other movies that actors have been in.
+-   Push the app to deploy.
